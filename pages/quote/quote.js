@@ -22,12 +22,13 @@ Page({
     this.loadQuoteConfig()
   },
 
-  async loadQuoteConfig() {
-    // 使用本地最新报价配置
+  loadQuoteConfig() {
+    // 直接使用本地报价配置（跳过云数据库，避免旧数据覆盖）
+    const config = mockData.quoteConfig
     this.setData({
-      services: mockData.quoteConfig.services,
-      allAddons: mockData.quoteConfig.allAddons,
-      serviceAddons: mockData.quoteConfig.serviceAddons,
+      services: config.services,
+      allAddons: config.allAddons,
+      serviceAddons: config.serviceAddons,
       loading: false
     })
   },
