@@ -77,7 +77,7 @@ Page({
   selectPlan(e) {
     const planId = e.currentTarget.dataset.id
     // 根据套餐自动设置月数
-    const monthMap = { monthly: 1, halfYearly: 6, yearly: 12 }
+    const monthMap = { monthly: 1, 'half-year': 6, yearly: 12 }
     this.setData({ selectedPlan: planId, quantity: monthMap[planId] || 1 })
     this.calculate()
   },
