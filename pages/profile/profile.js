@@ -3,11 +3,29 @@ const app = getApp()
 Page({
   data: {
     showWechatQR: false,
+    showEasterEgg: false,
+    logoTapCount: 0,
     menuItems: [
       { id: 'wechat', label: '添加微信', icon: '💬', desc: '微信号：njfmz1' },
       { id: 'about', label: '关于我们', icon: '🏢' },
       { id: 'share', label: '分享给朋友', icon: '📤', type: 'share' },
     ]
+  },
+
+  onLogoTap() {
+    let count = this.data.logoTapCount + 1
+    if (count >= 10) {
+      this.setData({ showEasterEgg: true, logoTapCount: 0 })
+    } else {
+      this.setData({ logoTapCount: count })
+      // 2秒内没继续点就重置
+      clearTimeout(this._logoTimer)
+      this._logoTimer = setTimeout(() => { this.setData({ logoTapCount: 0 }) }, 2000)
+    }
+  },
+
+  closeEasterEgg() {
+    this.setData({ showEasterEgg: false })
   },
 
   onMenuTap(e) {

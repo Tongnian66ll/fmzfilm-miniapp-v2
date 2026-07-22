@@ -1,7 +1,7 @@
 <view class="container">
   <!-- 品牌信息区 -->
   <view class="user-section">
-    <image class="avatar" src="/images/logo-fmf.png" mode="aspectFit" />
+    <image class="avatar" src="/images/logo-fmf.png" mode="aspectFit" bindtap="onLogoTap" />
     <view class="brand-info">
       <text class="user-name">分秒帧影视</text>
       <text class="user-sub">FenMiaoZFilm Co., Ltd</text>
@@ -39,6 +39,15 @@
   <view class="footer-info">
     <text class="footer-text">© 2026 分秒帧影视</text>
     <text class="footer-ver" catchtap="onVersionTap">v1.0</text>
+  </view>
+
+  <!-- 彩蛋弹窗 -->
+  <view class="easter-mask" wx:if="{{showEasterEgg}}" catchtap="closeEasterEgg">
+    <view class="easter-popup" catchtap="">
+      <text class="easter-emoji">🐱</text>
+      <text class="easter-text">喵喵一生一世喜欢小摩尔酱</text>
+      <text class="easter-close" catchtap="closeEasterEgg">✕</text>
+    </view>
   </view>
 
   <!-- 微信二维码弹窗 -->

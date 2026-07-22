@@ -104,3 +104,42 @@
   font-size: 32rpx; color: rgba(255,255,255,0.5);
   padding: 8rpx;
 }
+
+/* 彩蛋弹窗 */
+.easter-mask {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+.easter-popup {
+  position: relative;
+  width: 600rpx;
+  background: linear-gradient(135deg, #1a1a2e, #2d1b4e);
+  border-radius: 32rpx;
+  padding: 80rpx 40rpx;
+  text-align: center;
+  border: 2rpx solid rgba(255,182,193,0.5);
+  animation: easterPop 0.3s ease;
+}
+@keyframes easterPop {
+  from { transform: scale(0.5); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+.easter-emoji { display: block; font-size: 80rpx; margin-bottom: 32rpx; }
+.easter-text {
+  display: block;
+  font-size: 32rpx;
+  color: #ffb6c1;
+  font-weight: 600;
+  line-height: 1.6;
+}
+.easter-close {
+  position: absolute;
+  top: 20rpx; right: 24rpx;
+  font-size: 32rpx; color: rgba(255,255,255,0.4);
+  padding: 8rpx;
+}
