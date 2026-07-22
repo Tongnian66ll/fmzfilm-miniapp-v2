@@ -14,27 +14,27 @@ const cases = [
   },
   {
     _id: 'case-changan',
-    title: '长安汽车览拓者 · 品牌TVC',
-    category: 'TVC',
+    title: '飞利浦电商广告',
+    category: '影视制作',
     coverUrl: '/images/case-feiyipu.webp',
     images: ['/images/case-feiyipu.webp'],
-    description: '为长安汽车览拓者系列打造品牌TVC广告，从客户需求拆解、创意提案到拍摄执行与成片交付，独立把控商业项目全流程。',
-    tags: ['TVC', '汽车品牌', '商业广告'],
+    description: '飞利浦电商广告片，从创意策划到拍摄成片，展现产品卖点与品牌调性，助力电商转化。',
+    tags: ['电商广告', '品牌广告', '商业广告'],
     year: 2025,
     duration: '60秒',
     role: '导演/编导'
   },
   {
     _id: 'case-maxus',
-    title: '上汽大通牛魔王 · 品牌TVC',
-    category: 'TVC',
+    title: '《光影人生》',
+    category: '影视制作',
     coverUrl: '/images/case-guangying.webp',
     images: ['/images/case-guangying.webp'],
-    description: '上汽大通牛魔王系列广告片，电影级画面质感与精准品牌表达，展现产品力量感与商业价值。',
-    tags: ['TVC', '汽车品牌', '商业广告'],
-    year: 2025,
-    duration: '60秒',
-    role: '导演/编导'
+    description: '光影人生，以镜头记录光影之美，用画面讲述动人故事，展现影视制作的魅力。',
+    tags: ['影视制作', '故事短片', '创意影像'],
+    year: 2024,
+    duration: '5分钟',
+    role: '导演/摄影'
   },
   {
     _id: 'case-tcl',

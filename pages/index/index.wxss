@@ -21,6 +21,13 @@
   text-align: center;
   padding: 0 48rpx;
 }
+.hero-logo {
+  width: 200rpx;
+  height: 200rpx;
+  margin: 0 auto 32rpx;
+  display: block;
+}
+
 .hero-badge {
   display: inline-flex;
   align-items: center;
