@@ -4,10 +4,7 @@
     "pages/cases/cases",
     "pages/case-detail/case-detail",
     "pages/quote/quote",
-    "pages/booking/booking",
-    "pages/profile/profile",
-    "pages/bookings-list/bookings-list",
-    "pages/admin-bookings/admin-bookings"
+    "pages/profile/profile"
   ],
   "window": {
     "backgroundTextStyle": "dark",
@@ -48,7 +45,6 @@
       }
     ]
   },
-  "cloud": true,
   "sitemapLocation": "sitemap.json",
   "style": "v2"
 }

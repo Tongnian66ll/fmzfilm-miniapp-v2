@@ -143,8 +143,18 @@
       </view>
       <view class="quote-actions">
         <button class="btn-primary" bindtap="goBooking">立即预约</button>
-        <button class="btn-outline" open-type="contact">咨询客服</button>
+        <button class="btn-outline" bindtap="showWechatQR">微信咨询</button>
       </view>
+    </view>
+  </view>
+
+  <!-- 微信二维码弹窗 -->
+  <view class="qr-mask" wx:if="{{showWechatQR}}" catchtap="closeWechatQR">
+    <view class="qr-popup" catchtap="">
+      <image class="qr-image" src="/images/wechat-qr.jpg" mode="aspectFit" />
+      <text class="qr-tip">长按识别图中二维码添加微信</text>
+      <text class="qr-wechat">微信号：njfmz1</text>
+      <text class="qr-close" catchtap="closeWechatQR">✕</text>
     </view>
   </view>
 </view>

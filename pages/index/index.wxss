@@ -27,7 +27,6 @@
   margin: 0 auto 32rpx;
   display: block;
 }
-
 .hero-badge {
   display: inline-flex;
   align-items: center;

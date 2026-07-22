@@ -10,34 +10,21 @@ Page({
       { value: '全流程', label: '制作能力' },
       { value: '100+', label: '剧本保障' }
     ],
-    featuredCases: [],
-    loading: true
+    featuredCases: []
   },
 
   onLoad() {
     this.loadFeaturedCases()
   },
 
-  async loadFeaturedCases() {
-    try {
-      const db = wx.cloud.database()
-      const res = await db.collection('cases')
-        .where({ featured: true })
-        .orderBy('sort', 'asc')
-        .limit(3)
-        .get()
-      this.setData({ featuredCases: res.data, loading: false })
-    } catch (err) {
-      this.setData({
-        featuredCases: mockData.cases.slice(0, 3),
-        loading: false
-      })
-    }
+  loadFeaturedCases() {
+    const featured = mockData.cases.filter(c => c.featured).slice(0, 3)
+    this.setData({ featuredCases: featured })
   },
 
   goCaseDetail(e) {
     const id = e.currentTarget.dataset.id
-    wx.navigateTo({ url: `/pages/case-detail/case-detail?id=${id}` })
+    wx.navigateTo({ url: '/pages/case-detail/case-detail?id=' + id })
   },
 
   goCases() {
@@ -48,14 +35,17 @@ Page({
     wx.switchTab({ url: '/pages/quote/quote' })
   },
 
-  goBooking() {
-    wx.navigateTo({ url: '/pages/booking/booking' })
-  },
-
   onShareAppMessage() {
     return {
       title: '分秒帧影视 - 专业影视制作',
       path: '/pages/index/index',
+      imageUrl: '/images/share-cover.jpg'
+    }
+  },
+
+  onShareTimeline() {
+    return {
+      title: '分秒帧影视 - 专业影视制作',
       imageUrl: '/images/share-cover.jpg'
     }
   }
