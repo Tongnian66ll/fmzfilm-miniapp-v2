@@ -2,6 +2,7 @@
 const cases = [
   {
     _id: 'case-xishi',
+    featured: true,
     title: '西施笑 · 院线电影',
     category: '电影',
     coverUrl: '/images/case-xishi.jpg',
@@ -14,6 +15,7 @@ const cases = [
   },
   {
     _id: 'case-changan',
+    featured: true,
     title: '飞利浦电商广告',
     category: '影视制作',
     coverUrl: '/images/case-feiyipu.jpg',
@@ -26,6 +28,7 @@ const cases = [
   },
   {
     _id: 'case-maxus',
+    featured: true,
     title: '《光影人生》',
     category: '影视制作',
     coverUrl: '/images/case-guangying.jpg',
