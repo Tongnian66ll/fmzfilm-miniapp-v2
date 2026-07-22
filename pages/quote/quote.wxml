@@ -19,6 +19,7 @@
         <view class="service-text">
           <text class="service-name">{{item.name}}</text>
           <text class="service-desc">{{item.description}}</text>
+          <text class="service-note" wx:if="{{item.note}}">{{item.note}}</text>
         </view>
       </view>
       <view class="service-right">
