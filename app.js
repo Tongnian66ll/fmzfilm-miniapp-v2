@@ -8,7 +8,7 @@ App({
       console.error('请使用 2.2.3 以上的基础库以使用云能力')
     } else {
       wx.cloud.init({
-        env: 'fmzfilm-prod',
+        env: 'cloud1',
         traceUser: true,
       })
     }
