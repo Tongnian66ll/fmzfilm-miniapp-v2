@@ -283,7 +283,7 @@ const quoteConfig = {
       configType: 'durationToggle',
       durationOptions: [
         { id: 'half', name: '4小时', price: 800 },
-        { id: 'full', name: '一天(8h)', price: 1600 }
+        { id: 'full', name: '一天(8h)', price: 1500 }
       ]
     },
     {
