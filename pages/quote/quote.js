@@ -23,22 +23,7 @@ Page({
   },
 
   async loadQuoteConfig() {
-    try {
-      const db = wx.cloud.database()
-      const res = await db.collection('quote_config').limit(1).get()
-      if (res.data.length > 0) {
-        const config = res.data[0]
-        this.setData({
-          services: config.services,
-          allAddons: config.allAddons,
-          serviceAddons: config.serviceAddons,
-          loading: false
-        })
-        return
-      }
-    } catch (err) {
-      console.log('使用默认报价配置')
-    }
+    // 使用本地最新报价配置
     this.setData({
       services: mockData.quoteConfig.services,
       allAddons: mockData.quoteConfig.allAddons,
@@ -90,7 +75,9 @@ Page({
   // 选择套餐（短视频代运营）
   selectPlan(e) {
     const planId = e.currentTarget.dataset.id
-    this.setData({ selectedPlan: planId })
+    // 根据套餐自动设置月数
+    const monthMap = { monthly: 1, halfYearly: 6, yearly: 12 }
+    this.setData({ selectedPlan: planId, quantity: monthMap[planId] || 1 })
     this.calculate()
   },
 
@@ -208,6 +195,9 @@ Page({
       })
     } else if (sid === 'short-film') {
       // 短片: 阶梯定价
+      // ≤5min: ¥8000起
+      // 5-20min: ¥8000 + (dur-5)×¥1200
+      // ≥20min: ¥8000 + 15×¥1200 + (dur-20)×¥1000
       const dur = Math.max(1, this.data.duration)
       let filmPrice = 0
       let filmDetail = ''
@@ -218,8 +208,8 @@ Page({
         filmPrice = 8000 + 1200 * (dur - 5)
         filmDetail = `5分钟内 ¥8000 + ${dur - 5}分钟 × ¥1200`
       } else {
-        filmPrice = 8000 + 1000 * (dur - 5)
-        filmDetail = `5分钟内 ¥8000 + ${dur - 5}分钟 × ¥1000`
+        filmPrice = 8000 + 1200 * 15 + 1000 * (dur - 20)
+        filmDetail = `5分钟内 ¥8000 + 15分钟 × ¥1200 + ${dur - 20}分钟 × ¥1000`
       }
       total += filmPrice
       breakdown.push({
