@@ -36,22 +36,57 @@ Page({
     if (!serviceType) { wx.showToast({ title: '请选择服务类型', icon: 'none' }); return }
 
     this.setData({ submitting: true })
-    try {
-      await wx.cloud.callFunction({
-        name: 'createBooking',
-        data: {
-          name: name.trim(), phone: phone.trim(), serviceType,
-          budget: budget.trim(), description: description.trim(),
-          estimatedPrice: quoteInfo ? quoteInfo.estimatedPrice : null,
-          quoteDetail: quoteInfo ? JSON.stringify(quoteInfo) : '',
-          createTime: new Date()
-        }
-      })
-      wx.showToast({ title: '提交成功', icon: 'success' })
-      setTimeout(() => wx.switchTab({ url: '/pages/index/index' }), 1500)
-    } catch (err) {
-      wx.showToast({ title: '提交失败，请稍后重试', icon: 'none' })
+
+    const bookingData = {
+      name: name.trim(),
+      phone: phone.trim(),
+      serviceType,
+      budget: budget.trim(),
+      description: description.trim(),
+      estimatedPrice: quoteInfo ? quoteInfo.estimatedPrice : null,
+      quoteDetail: quoteInfo ? JSON.stringify(quoteInfo) : '',
+      status: 'pending',
+      createTime: new Date().toISOString()
     }
+
+    let cloudSuccess = false
+
+    // 尝试云端提交
+    try {
+      const res = await wx.cloud.callFunction({
+        name: 'createBooking',
+        data: bookingData
+      })
+      if (res.result && res.result.success) {
+        cloudSuccess = true
+      }
+    } catch (err) {
+      console.log('云函数调用失败:', err)
+    }
+
+    // 保存到本地（无论云端是否成功）
+    try {
+      const localBookings = wx.getStorageSync('myBookings') || []
+      localBookings.unshift({
+        ...bookingData,
+        _id: 'local_' + Date.now(),
+        _createTime: new Date().toISOString()
+      })
+      wx.setStorageSync('myBookings', localBookings)
+    } catch (e) {
+      console.log('本地保存失败:', e)
+    }
+
+    if (cloudSuccess) {
+      wx.showToast({ title: '提交成功', icon: 'success' })
+    } else {
+      wx.showToast({ title: '已保存，建议添加微信确认', icon: 'none', duration: 2500 })
+    }
+
+    setTimeout(() => {
+      wx.switchTab({ url: '/pages/index/index' })
+    }, 1500)
+
     this.setData({ submitting: false })
   }
 })

@@ -5,7 +5,8 @@
     "pages/case-detail/case-detail",
     "pages/quote/quote",
     "pages/booking/booking",
-    "pages/profile/profile"
+    "pages/profile/profile",
+    "pages/bookings-list/bookings-list"
   ],
   "window": {
     "backgroundTextStyle": "dark",

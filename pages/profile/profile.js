@@ -47,6 +47,9 @@ Page({
         this.setData({ showWechatQR: true })
         break
       case 'my-bookings':
+        wx.navigateTo({ url: '/pages/bookings-list/bookings-list' })
+        break
+      case 'my-bookings-old':
         wx.showToast({ title: '功能开发中', icon: 'none' })
         break
       case 'about':
