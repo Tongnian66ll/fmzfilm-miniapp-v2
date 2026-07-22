@@ -2,41 +2,12 @@ const app = getApp()
 
 Page({
   data: {
-    userInfo: null,
-    isLoggedIn: false,
     showWechatQR: false,
     menuItems: [
       { id: 'wechat', label: '添加微信', icon: '💬', desc: '微信号：njfmz1' },
       { id: 'about', label: '关于我们', icon: '🏢' },
       { id: 'share', label: '分享给朋友', icon: '📤', type: 'share' },
     ]
-  },
-
-  onShow() {
-    this.checkLogin()
-  },
-
-  checkLogin() {
-    const userInfo = wx.getStorageSync('userInfo')
-    if (userInfo) {
-      this.setData({ userInfo, isLoggedIn: true })
-    } else {
-      this.setData({ userInfo: null, isLoggedIn: false })
-    }
-  },
-
-  getUserProfile() {
-    wx.getUserProfile({
-      desc: '用于完善用户信息',
-      success: (res) => {
-        const userInfo = res.userInfo
-        wx.setStorageSync('userInfo', userInfo)
-        this.setData({ userInfo, isLoggedIn: true })
-      },
-      fail: () => {
-        wx.showToast({ title: '授权已取消', icon: 'none' })
-      }
-    })
   },
 
   onMenuTap(e) {

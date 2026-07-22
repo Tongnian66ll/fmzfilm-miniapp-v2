@@ -1,13 +1,11 @@
 <view class="container">
-  <!-- 用户信息区 -->
+  <!-- 品牌信息区 -->
   <view class="user-section">
-    <view class="avatar-wrap" bindtap="getUserProfile">
-      <image wx:if="{{userInfo}}" class="avatar" src="{{userInfo.avatarUrl}}" />
-      <view wx:else class="avatar-default">
-        <text class="avatar-icon">👤</text>
-      </view>
+    <image class="avatar" src="/images/logo-fmf.png" mode="aspectFit" />
+    <view class="brand-info">
+      <text class="user-name">分秒帧影视</text>
+      <text class="user-sub">FenMiaoZFilm Co., Ltd</text>
     </view>
-    <text class="user-name">{{userInfo.nickName || '点击登录'}}</text>
   </view>
 
   <!-- 菜单列表 -->
