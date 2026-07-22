@@ -1,6 +1,6 @@
 const app = getApp()
 
-// 管理密码（可修改）
+// 管理密码
 const ADMIN_PASSWORD = 'tongnian666'
 
 Page({
@@ -8,12 +8,11 @@ Page({
     userInfo: null,
     isLoggedIn: false,
     showWechatQR: false,
-    showAbout: false,
     showPwdDialog: false,
-    pendingCount: 0,
     pwdInput: '',
     easterEggCount: 0,
     menuItems: [
+      { id: 'my-bookings', label: '我的预约', icon: '📋', desc: '查看提交记录' },
       { id: 'wechat', label: '添加微信', icon: '💬', desc: '微信号：njfmz1' },
       { id: 'about', label: '关于我们', icon: '🏢' },
       { id: 'share', label: '分享给朋友', icon: '📤' },
@@ -50,11 +49,19 @@ Page({
   onMenuTap(e) {
     const id = e.currentTarget.dataset.id
     switch (id) {
+      case 'my-bookings':
+        wx.navigateTo({ url: '/pages/bookings-list/bookings-list' })
+        break
       case 'wechat':
         this.setData({ showWechatQR: true })
         break
       case 'about':
-        this.setData({ showAbout: true, easterEggCount: 0 })
+        wx.showModal({
+          title: '分秒帧影视',
+          content: '南京分秒帧影视有限公司\n\n专业影视制作团队\n50+项目经验 · 18项电影节入围\n从创意到成片，以帧级精度打磨每一部作品',
+          showCancel: false,
+          confirmText: '知道了'
+        })
         break
       case 'share':
         break
@@ -67,11 +74,8 @@ Page({
     this.setData({ easterEggCount: count })
 
     if (count >= 5) {
-      // 触发密码验证
-      this.setData({ showAbout: false, showPwdDialog: true, easterEggCount: 0 })
-      wx.showToast({ title: '🔓 发现隐藏入口', icon: 'none', duration: 1500 })
+      this.setData({ showPwdDialog: true, easterEggCount: 0 })
     } else if (count >= 3) {
-      // 给点暗示
       wx.showToast({ title: `还差${5 - count}次`, icon: 'none', duration: 800 })
     }
   },
@@ -84,7 +88,7 @@ Page({
     const { pwdInput } = this.data
     if (pwdInput === ADMIN_PASSWORD) {
       this.setData({ showPwdDialog: false, pwdInput: '' })
-      wx.showToast({ title: '✅ 验证通过', icon: 'success' })
+      wx.showToast({ title: '验证通过', icon: 'success' })
       setTimeout(() => {
         wx.navigateTo({ url: '/pages/admin-bookings/admin-bookings' })
       }, 800)
@@ -99,21 +103,8 @@ Page({
     this.setData({ showWechatQR: false })
   },
 
-  closeAbout() {
-    this.setData({ showAbout: false, easterEggCount: 0 })
-  },
-
   closePwd() {
     this.setData({ showPwdDialog: false, pwdInput: '' })
-  },
-
-  copyWechat() {
-    wx.setClipboardData({
-      data: 'njfmz1',
-      success: () => {
-        wx.showToast({ title: '微信号已复制', icon: 'success' })
-      }
-    })
   },
 
   onShareAppMessage() {
