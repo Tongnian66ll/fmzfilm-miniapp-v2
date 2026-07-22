@@ -8,7 +8,7 @@
 .avatar {
   width: 100rpx;
   height: 100rpx;
-  border-radius: 50%;
+  border-radius: 0;
   border: none !important;
   margin-right: 28rpx;
 }
