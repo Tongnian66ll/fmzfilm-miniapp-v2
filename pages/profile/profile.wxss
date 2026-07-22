@@ -9,7 +9,7 @@
   width: 100rpx;
   height: 100rpx;
   border-radius: 50%;
-  border: 3rpx solid rgba(37,99,235,0.5);
+  border: none !important;
   margin-right: 28rpx;
 }
 .brand-info { display: flex; flex-direction: column; }
