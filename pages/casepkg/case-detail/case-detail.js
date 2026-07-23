@@ -1,4 +1,4 @@
-const mockData = require('../../utils/mockData')
+const mockData = require('../../../utils/mockData')
 
 Page({
   data: {
@@ -36,7 +36,7 @@ Page({
     const item = this.data.caseItem
     return {
       title: item ? item.title : '分秒帧影视',
-      path: '/pages/case-detail/case-detail?id=' + (item ? item._id : ''),
+      path: '/pages/casepkg/case-detail/case-detail?id=' + (item ? item._id : ''),
       imageUrl: item ? item.coverUrl : ''
     }
   },

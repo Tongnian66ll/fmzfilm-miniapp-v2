@@ -2,7 +2,7 @@ const mockData = require('../../utils/mockData')
 
 Page({
   data: {
-    categories: ['全部', '电影', '宣传片', 'TVC', '短片', '纪录片', 'AIGC', '短剧', '互动影游', '综艺'],
+    categories: ['全部', '电影', '短片', '短剧', '纪录片', '宣传片', '影视制作', '广告', 'AIGC', 'MV', '互动影游', '综艺'],
     activeCategory: '全部',
     cases: []
   },
@@ -36,6 +36,6 @@ Page({
 
   goDetail(e) {
     const id = e.currentTarget.dataset.id
-    wx.navigateTo({ url: '/pages/case-detail/case-detail?id=' + id })
+    wx.navigateTo({ url: '/pages/casepkg/case-detail/case-detail?id=' + id })
   }
 })

@@ -24,7 +24,7 @@ Page({
 
   goCaseDetail(e) {
     const id = e.currentTarget.dataset.id
-    wx.navigateTo({ url: '/pages/case-detail/case-detail?id=' + id })
+    wx.navigateTo({ url: '/pages/casepkg/case-detail/case-detail?id=' + id })
   },
 
   goCases() {
