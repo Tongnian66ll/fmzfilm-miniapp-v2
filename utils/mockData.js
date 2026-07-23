@@ -1,6 +1,19 @@
 // 案例数据 - 全部54个案例
 const cases = [
   {
+    _id: 'case-yuanxian-xishi',
+    featured: true,
+    title: '西施笑 · 院线电影',
+    category: '电影',
+    coverUrl: '/images/covers/yuanxian-xishi-cover.jpg',
+    images: ['/pages/casepkg/images/cases/yuanxian-xishi-cover.jpg', '/pages/casepkg/images/cases/yuanxian-xishi-1.jpg'],
+    description: '院线电影《西施笑》，与刘佩琦、佟晨洁及导演周浩晖团队合作，担任执行灯光师，负责全片灯光设计与现场执行。深入理解影视工业级制作流程。',
+    tags: ['院线电影', '灯光设计', '古装'],
+    year: 2024,
+    duration: '120分钟',
+    role: '执行灯光师'
+  },
+  {
     _id: 'case-ai-jinling',
     featured: false,
     title: 'AI金陵 · AIGC作品',
@@ -662,19 +675,6 @@ const cases = [
     year: 2024,
     duration: '10分钟',
     role: '导演/摄影'
-  },
-  {
-    _id: 'case-yuanxian-xishi',
-    featured: true,
-    title: '西施笑 · 院线电影',
-    category: '电影',
-    coverUrl: '/images/covers/yuanxian-xishi-cover.jpg',
-    images: ['/pages/casepkg/images/cases/yuanxian-xishi-cover.jpg', '/pages/casepkg/images/cases/yuanxian-xishi-1.jpg'],
-    description: '院线电影《西施笑》，与刘佩琦、佟晨洁及导演周浩晖团队合作，担任执行灯光师，负责全片灯光设计与现场执行。深入理解影视工业级制作流程。',
-    tags: ['院线电影', '灯光设计', '古装'],
-    year: 2024,
-    duration: '120分钟',
-    role: '执行灯光师'
   },
   {
     _id: 'case-heidong',

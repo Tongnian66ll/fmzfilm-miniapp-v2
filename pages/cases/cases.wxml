@@ -10,6 +10,11 @@
     >{{item}}</view>
   </scroll-view>
 
+  <!-- 顶部提示 -->
+  <view class="more-hint top-hint">
+    <text class="hint-text">更多优秀案例无法公开展示，联系客服获取最新案例</text>
+  </view>
+
   <!-- 案例列表 -->
   <view class="cases-list" wx:if="{{!loading && cases.length > 0}}">
     <view class="case-card" wx:for="{{cases}}" wx:key="_id" bindtap="goDetail" data-id="{{item._id}}">
