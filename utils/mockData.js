@@ -189,7 +189,7 @@ const cases = [
     category: '互动影游',
     coverUrl: '/images/case-guangying.jpg',
     images: ['/images/case-guangying.jpg', '/pages/casepkg/images/cases/hudong-guangying-1.jpg', '/pages/casepkg/images/cases/hudong-guangying-2.jpg'],
-    description: '光影人生，以镜头记录光影之美，用画面讲述动人故事，展现影视制作的魅力。',
+    description: '《光影人生》是一款集合了校园、恋爱、商战为一体的真人互动式电影游戏。玩家将作为男主角沈浩，经历从落魄到辉煌的过山车式人生体验。虽然身处尔虞我诈的商战中，但你并不孤独。朋友、恋人相伴左右，也是你人生道路上的一盏盏明灯。',
     tags: ['影视制作', '故事短片', '创意影像'],
     year: 2024,
     duration: '5分钟',
