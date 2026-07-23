@@ -18,7 +18,6 @@
       </view>
       <view class="case-info">
         <text class="case-title">{{item.title}}</text>
-        <text class="case-desc">{{item.description}}</text>
         <view class="case-tags">
           <text class="tag" wx:for="{{item.tags}}" wx:for-item="tag" wx:key="*this">{{tag}}</text>
         </view>
