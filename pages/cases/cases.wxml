@@ -29,6 +29,10 @@
     </view>
   </view>
 
+  <!-- 底部提示 -->
+  <view class="more-hint">
+    <text class="hint-text">更多优秀案例无法公开展示，联系客服获取最新案例</text>
+  </view>
   <!-- 空状态 -->
   <view class="empty-state" wx:if="{{!loading && cases.length === 0}}">
     <text class="empty-text">暂无该分类下的案例</text>
